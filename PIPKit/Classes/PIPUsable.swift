@@ -54,7 +54,6 @@ internal extension PIPUsable where Self: UIViewController {
         if animated {
             UIView.animate(withDuration: 0.24, delay: 0, options: .curveEaseOut, animations: { [weak self] in
                 self?.view.alpha = 0.0
-                self?.view.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
             }) { [weak self] (_) in
                 self?.view.removeFromSuperview()
                 completion?()
