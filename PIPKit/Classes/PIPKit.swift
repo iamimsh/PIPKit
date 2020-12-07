@@ -11,6 +11,14 @@ public struct PIPShadow {
 public struct PIPCorner {
     public let radius: CGFloat
     public let curve: CALayerCornerCurve?
+    
+    public static var videoCorner: PIPCorner {
+        if #available(iOS 13.0, *) {
+            return .init(radius: 12, curve: .continuous)
+        } else {
+            return .init(radius: 12, curve: nil)
+        }
+    }
 }
 
 public enum PIPState {
