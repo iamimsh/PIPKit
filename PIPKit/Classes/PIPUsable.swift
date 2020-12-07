@@ -13,16 +13,16 @@ public protocol PIPUsable {
 }
 
 public extension PIPUsable {
-    var initialState: PIPState { return .pip }
+    var initialState: PIPState { return .full }
     var initialPosition: PIPPosition { return .bottomRight }
     var pipEdgeInsets: UIEdgeInsets { return UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15) }
-    var pipSize: CGSize { return CGSize(width: 200.0, height: (200.0 * 9.0) / 16.0) }
+    var pipSize: CGSize { return CGSize(width: UIScreen.main.bounds.width*0.31, height: UIScreen.main.bounds.height*0.28) }
     var pipShadow: PIPShadow? { return PIPShadow(color: .black, opacity: 0.3, offset: CGSize(width: 0, height: 8), radius: 10) }
     var pipCorner: PIPCorner? {
         if #available(iOS 13.0, *) {
-            return PIPCorner(radius: 6, curve: .continuous)
+            return PIPCorner(radius: 8, curve: .continuous)
         } else {
-            return PIPCorner(radius: 6, curve: nil)
+            return PIPCorner(radius: 8, curve: nil)
         }
     }
     func didChangedState(_ state: PIPState) {}
